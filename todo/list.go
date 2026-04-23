@@ -48,7 +48,7 @@ func (l *List) ListUncompletedTask() map[string]Task {
 	defer l.mtx.RUnlock()
 	listUncompletedTask := make(map[string]Task, len(l.tasks))
 	for title, task := range l.tasks {
-		if !task.IsComplited {
+		if !task.IsCompleted {
 			listUncompletedTask[title] = task
 		}
 	}
